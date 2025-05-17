@@ -17,8 +17,8 @@ jobs:
           HOST: ${{ secrets.HOST }}
           USERNAME: root
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-          LOCAL_PATH: c
+          LOCAL_DIR: c
           FILES: 1.txt,a/*,b/*.txt
-          REMOTE_PATH: /a/b/c
+          REMOTE_DIR: /a/b/c
           CLEAN_REMOTE: true
           PORT: 22
