@@ -1,0 +1,24 @@
+name: Deploy via SCP
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Deploy to server
+        uses: wjftu/simple-scp-action
+        with:
+          HOST: ${{ secrets.HOST }}
+          USERNAME: root
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          LOCAL_PATH: ./dist
+          FILES: 1.txt,a/*,b/*.txt
+          REMOTE_PATH: /a/b/c
+          CLEAN_REMOTE: true
+          PORT: 22
