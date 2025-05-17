@@ -12,7 +12,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Deploy to server
-        uses: wjftu/simple-scp-action
+        uses: wjftu/simple-scp-action@master
         with:
           HOST: ${{ secrets.HOST }}
           USERNAME: root
